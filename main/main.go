@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/wattam/user-auth-system/database"
+	"github.com/wattam/user-auth-system/handlers/userHandlers"
 )
 
 func main() {
@@ -14,11 +15,11 @@ func main() {
 
 	users := r.Group("users")
 	{
-		users.GET("")
-		users.GET("")
-		users.POST("")
-		users.PUT("")
-		users.DELETE("")
+		users.GET("/get", userHandlers.GetAll)
+		users.GET("/:id", userHandlers.Get)
+		users.POST("/post", userHandlers.Post)
+		users.PUT("/put", userHandlers.Put)
+		users.DELETE("/:id", userHandlers.Delete)
 	}
 
 	r.Run()
