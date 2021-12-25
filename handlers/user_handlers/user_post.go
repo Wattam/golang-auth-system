@@ -1,4 +1,4 @@
-package userHandlers
+package user_handlers
 
 import (
 	"net/http"
@@ -17,7 +17,14 @@ func Post(c *gin.Context) {
 
 	user.Password = services.SHA256Encoder(user.Password)
 
-	database.Db.Create(&user)
+	err := database.Db.Create(&user).Error
+
+	if err != nil {
+		c.JSON(http.StatusMethodNotAllowed, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
 
 	c.JSON(http.StatusOK, user)
 }
