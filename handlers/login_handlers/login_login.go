@@ -9,14 +9,14 @@ import (
 	"github.com/wattam/user-auth-system/services"
 )
 
-func login(c *gin.Context) {
+func Login(c *gin.Context) {
 
 	login := models.Login{}
 	c.ShouldBindJSON(&login)
 
 	user := models.User{}
 
-	emailError := database.Db.Where("username = ? OR email = ?", login.Username, login.Email).First(&user).Error
+	emailError := database.Db.Where("username = ? OR email = ?", login.Credential, login.Credential).First(&user).Error
 	if emailError != nil {
 		c.JSON(http.StatusBadRequest, gin.H{
 			"error": "invalid username/email ",
