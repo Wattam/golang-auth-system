@@ -34,6 +34,7 @@ func ConnectDatabase() {
 
 func RunMigrations() {
 	Db.AutoMigrate(&models.User{})
+	Db.AutoMigrate(&models.Shoe{})
 }
 
 func DisconnectDatabase() {

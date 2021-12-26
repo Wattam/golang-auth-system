@@ -15,6 +15,8 @@ func Authentication() gin.HandlerFunc {
 
 		header := c.GetHeader("Authorization")
 
+		//fmt.Printf("\n\n%v\n\n", header)
+
 		if header == "Bearer" {
 			c.AbortWithStatus(http.StatusUnauthorized)
 		}
