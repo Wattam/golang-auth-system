@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/wattam/auth-system/database"
-	"github.com/wattam/auth-system/models"
+	"github.com/wattam/golang-auth-system/database"
+	"github.com/wattam/golang-auth-system/models"
 )
 
 func Post(c *gin.Context) {

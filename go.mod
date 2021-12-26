@@ -1,4 +1,4 @@
-module github.com/wattam/auth-system
+module github.com/wattam/golang-auth-system
 
 go 1.17
 

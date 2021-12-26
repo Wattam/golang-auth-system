@@ -2,11 +2,11 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/wattam/auth-system/database"
-	"github.com/wattam/auth-system/handlers/login_handlers"
-	"github.com/wattam/auth-system/handlers/shoe_handlers"
-	"github.com/wattam/auth-system/handlers/user_handlers"
-	"github.com/wattam/auth-system/main/middlewares"
+	"github.com/wattam/golang-auth-system/database"
+	"github.com/wattam/golang-auth-system/handlers/login_handlers"
+	"github.com/wattam/golang-auth-system/handlers/shoe_handlers"
+	"github.com/wattam/golang-auth-system/handlers/user_handlers"
+	"github.com/wattam/golang-auth-system/main/middlewares"
 )
 
 func main() {

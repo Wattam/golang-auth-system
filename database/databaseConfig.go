@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/wattam/auth-system/models"
+	"github.com/wattam/golang-auth-system/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -12,7 +12,7 @@ const host = "localhost"
 const port = "5432"
 const user = "postgres"
 const password = "postgres123"
-const dbName = "ShoeStore"
+const dbName = "golang-auth-system"
 
 var dataSourceName = fmt.Sprintf("host=%s port=%s user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbName)
 

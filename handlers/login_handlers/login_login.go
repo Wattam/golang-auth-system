@@ -4,9 +4,9 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/wattam/auth-system/database"
-	"github.com/wattam/auth-system/models"
-	"github.com/wattam/auth-system/services"
+	"github.com/wattam/golang-auth-system/database"
+	"github.com/wattam/golang-auth-system/models"
+	"github.com/wattam/golang-auth-system/services"
 )
 
 func Login(c *gin.Context) {
