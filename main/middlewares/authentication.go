@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/wattam/user-auth-system/services"
+	"github.com/wattam/auth-system/services"
 )
 
 func Authentication() gin.HandlerFunc {

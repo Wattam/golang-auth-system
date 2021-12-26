@@ -4,8 +4,8 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/wattam/user-auth-system/database"
-	"github.com/wattam/user-auth-system/models"
+	"github.com/wattam/auth-system/database"
+	"github.com/wattam/auth-system/models"
 )
 
 func GetAll(c *gin.Context) {

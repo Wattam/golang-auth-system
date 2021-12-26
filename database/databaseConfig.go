@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/wattam/user-auth-system/models"
+	"github.com/wattam/auth-system/models"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
