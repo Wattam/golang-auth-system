@@ -15,7 +15,9 @@ func Post(c *gin.Context) {
 
 	c.ShouldBindJSON(&user)
 
-	user.Password = services.SHA256Encoder(user.Password)
+	if user.Password != "" {
+		user.Password = services.SHA256Encoder(user.Password)
+	}
 
 	err := database.Db.Create(&user).Error
 

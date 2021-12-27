@@ -20,9 +20,18 @@ func Put(c *gin.Context) {
 		return
 	}
 
-	user.Password = services.SHA256Encoder(user.Password)
+	if user.Password != "" {
+		user.Password = services.SHA256Encoder(user.Password)
+	}
 
-	database.Db.Save(&user)
+	err := database.Db.Save(&user).Error
+
+	if err != nil {
+		c.JSON(http.StatusMethodNotAllowed, gin.H{
+			"error": err.Error(),
+		})
+		return
+	}
 
 	c.JSON(http.StatusOK, user)
 }
