@@ -1,0 +1,323 @@
+{
+  "swagger": "2.0",
+  "info": {},
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "Logins a user.",
+        "operationId": "Login",
+        "parameters": [
+          {
+            "description": "The user credentials to login.",
+            "name": "login",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "credential": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "BAD REQUEST"
+          },
+          "401": {
+            "description": "UNAUTHORIZED"
+          },
+          "500": {
+            "description": "INTERNAL SERVER ERROR"
+          }
+        }
+      }
+    },
+    "/shoes/get": {
+      "get": {
+        "summary": "Get all shoes.",
+        "operationId": "GetAll",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "NO CONTENT"
+          }
+        }
+      }
+    },
+    "/shoes/post": {
+      "post": {
+        "summary": "Creates a shoe.",
+        "operationId": "Post",
+        "parameters": [
+          {
+            "description": "The shoe to create.",
+            "name": "shoe",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colour": {
+                  "type": "string"
+                },
+                "material": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "style": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "405": {
+            "description": "METHOD NOT ALLOWED"
+          }
+        }
+      }
+    },
+    "/shoes/put": {
+      "put": {
+        "summary": "Edits a shoe.",
+        "operationId": "Put",
+        "parameters": [
+          {
+            "description": "The shoe to edit.",
+            "name": "shoe",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "colour": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "material": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "number"
+                },
+                "style": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "NO CONTENT"
+          },
+          "405": {
+            "description": "METHOD NOT ALLOWED"
+          }
+        }
+      }
+    },
+    "/shoes/{ID}": {
+      "get": {
+        "summary": "Gets a shoe by ID.",
+        "operationId": "Get",
+        "parameters": [
+          {
+            "type": "integer",
+            "description": "ID of the shoe to get.",
+            "name": "ID",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "NOT FOUND"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a shoe by ID.",
+        "operationId": "Delete",
+        "parameters": [
+          {
+            "type": "integer",
+            "description": "ID of the shoe to delete.",
+            "name": "ID",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "NO CONTENT"
+          }
+        }
+      }
+    },
+    "/users/get": {
+      "get": {
+        "summary": "Get all users.",
+        "operationId": "GetAll",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "NO CONTENT"
+          }
+        }
+      }
+    },
+    "/users/post": {
+      "post": {
+        "summary": "Creates a user.",
+        "operationId": "Post",
+        "parameters": [
+          {
+            "description": "The user to create.",
+            "name": "user",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "405": {
+            "description": "METHOD NOT ALLOWED"
+          }
+        }
+      }
+    },
+    "/users/put": {
+      "put": {
+        "summary": "Edits a user.",
+        "operationId": "Put",
+        "parameters": [
+          {
+            "description": "The user to edit.",
+            "name": "user",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "id": {
+                  "type": "number"
+                },
+                "password": {
+                  "type": "string"
+                },
+                "username": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "204": {
+            "description": "NO CONTENT"
+          },
+          "405": {
+            "description": "METHOD NOT ALLOWED"
+          }
+        }
+      }
+    },
+    "/users/{ID}": {
+      "get": {
+        "summary": "Gets a user by ID.",
+        "operationId": "Get",
+        "parameters": [
+          {
+            "type": "integer",
+            "description": "ID of the user to get.",
+            "name": "ID",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404": {
+            "description": "NOT FOUND"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Deletes a user by ID.",
+        "operationId": "Delete",
+        "parameters": [
+          {
+            "type": "integer",
+            "description": "ID of the user to delete.",
+            "name": "ID",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "NO CONTENT"
+          }
+        }
+      }
+    }
+  }
+}

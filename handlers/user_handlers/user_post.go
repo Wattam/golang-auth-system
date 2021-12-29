@@ -9,6 +9,30 @@ import (
 	"github.com/wattam/golang-auth-system/services"
 )
 
+// swagger:operation POST /users/post Post
+// Creates a user.
+// ---
+//
+// parameters:
+// - name: user
+//   in: body
+//   description: The user to create.
+//   required: true
+//   schema:
+//    type: object
+//    properties:
+//     username:
+//      type: string
+//     email:
+//      type: string
+//     password:
+//      type: string
+//
+// responses:
+//  200:
+//   description: OK
+//  405:
+//   description: METHOD NOT ALLOWED
 func Post(c *gin.Context) {
 
 	user := models.User{}

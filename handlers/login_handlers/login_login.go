@@ -9,6 +9,32 @@ import (
 	"github.com/wattam/golang-auth-system/services"
 )
 
+// swagger:operation POST /login Login
+// Logins a user.
+// ---
+//
+// parameters:
+// - name: login
+//   in: body
+//   description: The user credentials to login.
+//   required: true
+//   schema:
+//    type: object
+//    properties:
+//     credential:
+//      type: string
+//     password:
+//      type: string
+//
+// responses:
+//  200:
+//   description: OK
+//  400:
+//   description: BAD REQUEST
+//  401:
+//   description: UNAUTHORIZED
+//  500:
+//   description: INTERNAL SERVER ERROR
 func Login(c *gin.Context) {
 
 	login := models.Login{}

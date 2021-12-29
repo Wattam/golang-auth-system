@@ -8,6 +8,22 @@ import (
 	"github.com/wattam/golang-auth-system/models"
 )
 
+// swagger:operation GET /users/{ID} Get
+// Gets a user by ID.
+// ---
+//
+// parameters:
+// - name: ID
+//   in: path
+//   description: ID of the user to get.
+//   required: true
+//   type: integer
+//
+// responses:
+//  200:
+//   description: OK
+//  404:
+//   description: NOT FOUND
 func Get(c *gin.Context) {
 
 	user := models.User{}

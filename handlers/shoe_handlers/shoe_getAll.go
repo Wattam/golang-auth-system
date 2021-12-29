@@ -8,6 +8,15 @@ import (
 	"github.com/wattam/golang-auth-system/models"
 )
 
+// swagger:operation GET /shoes/get GetAll
+// Get all shoes.
+// ---
+//
+// responses:
+//  200:
+//   description: OK
+//  204:
+//   description: NO CONTENT
 func GetAll(c *gin.Context) {
 
 	shoes := []models.Shoe{}
