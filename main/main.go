@@ -18,11 +18,9 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/wattam/golang-auth-system/controller"
 	"github.com/wattam/golang-auth-system/database"
-	"github.com/wattam/golang-auth-system/handlers/login_handlers"
-	"github.com/wattam/golang-auth-system/handlers/shoe_handlers"
-	"github.com/wattam/golang-auth-system/handlers/user_handlers"
-	"github.com/wattam/golang-auth-system/main/middlewares"
+	"github.com/wattam/golang-auth-system/main/middleware"
 )
 
 func main() {
@@ -34,25 +32,25 @@ func main() {
 
 	v1 := r.Group("/api/v1")
 	{
-		users := v1.Group("users", middlewares.Authentication())
+		users := v1.Group("users", middleware.Authentication())
 		{
-			users.GET("/get", user_handlers.GetAll)
-			users.GET("/:id", user_handlers.Get)
-			users.POST("/post", user_handlers.Post)
-			users.PUT("/put", user_handlers.Put)
-			users.DELETE("/:id", user_handlers.Delete)
+			users.GET("/get", controller.GetAllUsers)
+			users.GET("/:id", controller.GetUser)
+			users.POST("/post", controller.PostUser)
+			users.PUT("/put", controller.PutUser)
+			users.DELETE("/:id", controller.DeleteUser)
 		}
 
-		shoes := v1.Group("shoes", middlewares.Authentication())
+		shoes := v1.Group("shoes", middleware.Authentication())
 		{
-			shoes.GET("/get", shoe_handlers.GetAll)
-			shoes.GET("/:id", shoe_handlers.Get)
-			shoes.POST("/post", shoe_handlers.Post)
-			shoes.PUT("/put", shoe_handlers.Put)
-			shoes.DELETE("/:id", shoe_handlers.Delete)
+			shoes.GET("/get", controller.GetAllShoes)
+			shoes.GET("/:id", controller.GetShoe)
+			shoes.POST("/post", controller.PostShoe)
+			shoes.PUT("/put", controller.PutShoe)
+			shoes.DELETE("/:id", controller.DeleteShoe)
 		}
 
-		v1.POST("/login", login_handlers.Login)
+		v1.POST("/login", controller.Login)
 	}
 
 	r.Run()

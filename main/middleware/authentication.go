@@ -1,10 +1,10 @@
-package middlewares
+package middleware
 
 import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/wattam/golang-auth-system/services"
+	"github.com/wattam/golang-auth-system/service"
 )
 
 func Authentication() gin.HandlerFunc {
@@ -15,15 +15,13 @@ func Authentication() gin.HandlerFunc {
 
 		header := c.GetHeader("Authorization")
 
-		//fmt.Printf("\n\n%v\n\n", header)
-
 		if header == "Bearer" {
 			c.AbortWithStatus(http.StatusUnauthorized)
 		}
 
 		token := header[len(bearerSchema):]
 
-		if !services.NewJwtService().ValidateToken(token) {
+		if !service.NewJwtService().ValidateToken(token) {
 			c.AbortWithStatus(http.StatusUnauthorized)
 		}
 	}

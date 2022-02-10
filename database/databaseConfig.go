@@ -3,7 +3,7 @@ package database
 import (
 	"fmt"
 
-	"github.com/wattam/golang-auth-system/models"
+	"github.com/wattam/golang-auth-system/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -33,12 +33,13 @@ func ConnectDatabase() {
 }
 
 func RunMigrations() {
-	Db.AutoMigrate(&models.User{})
-	Db.AutoMigrate(&models.Shoe{})
+
+	Db.AutoMigrate(&model.User{})
+	Db.AutoMigrate(&model.Shoe{})
 }
 
 func DisconnectDatabase() {
-	config, _ := Db.DB()
 
+	config, _ := Db.DB()
 	config.Close()
 }

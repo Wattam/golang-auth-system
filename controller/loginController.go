@@ -1,12 +1,12 @@
-package login_handlers
+package controller
 
 import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/wattam/golang-auth-system/database"
-	"github.com/wattam/golang-auth-system/models"
-	"github.com/wattam/golang-auth-system/services"
+	"github.com/wattam/golang-auth-system/model"
+	"github.com/wattam/golang-auth-system/service"
 )
 
 // swagger:operation POST /login Login
@@ -37,10 +37,10 @@ import (
 //   description: INTERNAL SERVER ERROR
 func Login(c *gin.Context) {
 
-	login := models.Login{}
+	login := model.Login{}
 	c.ShouldBindJSON(&login)
 
-	user := models.User{}
+	user := model.User{}
 
 	emailError := database.Db.Where("username = ? OR email = ?", login.Credential, login.Credential).First(&user).Error
 	if emailError != nil {
@@ -50,14 +50,14 @@ func Login(c *gin.Context) {
 		return
 	}
 
-	if user.Password != services.SHA256Encoder(login.Password) {
+	if user.Password != service.SHA256Encoder(login.Password) {
 		c.JSON(http.StatusUnauthorized, gin.H{
 			"error": "invalid password",
 		})
 		return
 	}
 
-	token, err := services.NewJwtService().GenerateToken(user.ID)
+	token, err := service.NewJwtService().GenerateToken(user.ID)
 	if err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{
 			"error": err.Error(),
