@@ -100,8 +100,8 @@ swagger serve -F swagger ./swagger.json
 - Body example:
 ```json
 {
-	"credential":"username1",
-	"password":"password1"
+	"credential": "username1",
+	"password": "password1"
 }
 ```
 - Response example:
