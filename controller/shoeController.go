@@ -79,14 +79,10 @@ func GetShoe(c *gin.Context) {
 //    properties:
 //     name:
 //      type: string
-//     style:
-//      type: string
-//     colour:
-//      type: string
-//     material:
+//     color:
 //      type: string
 //     price:
-//      type: "number"
+//      type: number
 //
 // responses:
 //  200:
@@ -127,11 +123,7 @@ func PostShoe(c *gin.Context) {
 //      type: number
 //     name:
 //      type: string
-//     style:
-//      type: string
-//     colour:
-//      type: string
-//     material:
+//     colorr:
 //      type: string
 //     price:
 //      type: number

@@ -68,10 +68,7 @@
             "schema": {
               "type": "object",
               "properties": {
-                "colour": {
-                  "type": "string"
-                },
-                "material": {
+                "color": {
                   "type": "string"
                 },
                 "name": {
@@ -79,9 +76,6 @@
                 },
                 "price": {
                   "type": "number"
-                },
-                "style": {
-                  "type": "string"
                 }
               }
             }
@@ -110,23 +104,17 @@
             "schema": {
               "type": "object",
               "properties": {
-                "colour": {
+                "colorr": {
                   "type": "string"
                 },
                 "id": {
                   "type": "number"
-                },
-                "material": {
-                  "type": "string"
                 },
                 "name": {
                   "type": "string"
                 },
                 "price": {
                   "type": "number"
-                },
-                "style": {
-                  "type": "string"
                 }
               }
             }
